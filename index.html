@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  
+  <!-- Weather example         -->
+  <!-- Bob German, 03-Oct-2015 -->
+
+<head>
+  <script data-require="angular.js@1.4.5" data-semver="1.4.5" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <script src="weatherService.js"></script>
+</head>
+
+<body ng-app='WeatherApp'>
+
+  <div ng-controller="main as vm">
+    <h1>{{vm.City}} Weather</h1>
+
+    <div ng-include="'weatherDisplay.html'" ng-show="vm.ValidDataLoaded"></div>
+
+    <p class="error">
+      {{vm.error}}
+    </p>
+
+    <form name="weatherForm">
+      <input type="search" placeholder="City" required ng-model="vm.query" />
+      <input type="submit" value="Go" ng-click="vm.Search()" />
+    </form>
+  </div>
+</body>
+
+</html>
